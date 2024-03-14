@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class AirplaneModelDTO {
-    private Long id;
+    private String id;
     private String family;
     private double number;
     private double cargoCapacity;
