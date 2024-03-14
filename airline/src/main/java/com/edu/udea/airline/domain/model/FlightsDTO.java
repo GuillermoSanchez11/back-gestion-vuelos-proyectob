@@ -13,16 +13,6 @@ public class FlightsDTO {
     private double basePrice;
     private double taxPercentage;
     private double surcharge;
-
-    public FlightsDTO() {
-    }
-
-    public FlightsDTO(Long id, String flightNumber, double basePrice, double taxPercentage, double surcharge) {
-        this.id = id;
-        this.flightNumber = flightNumber;
-        this.basePrice = basePrice;
-        this.taxPercentage = taxPercentage;
-        this.surcharge = surcharge;
-    }
+    private List<ScaleDTO> scales;
 
 }
