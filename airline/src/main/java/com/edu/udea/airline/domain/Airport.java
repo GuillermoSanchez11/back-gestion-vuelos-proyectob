@@ -1,7 +1,10 @@
 package com.edu.udea.airline.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -13,14 +16,31 @@ import java.io.Serializable;
 @Setter
 @RequiredArgsConstructor
 @Entity
+@Table(name = "Airport", schema = "Code_factory")
 public class Airport implements Serializable {
     @Id
-    private Long id;
+    @Column(name = "airport_code", nullable = false, unique = true, updatable = true, length = 3)
+    private String id;
+
+    @NotNull
+    @Column(name = "name", nullable = false, length = 80)
     private String name;
+
+    @NotNull
+    @Column(name = "type", nullable = false, length = 20)
     private String type;
+
+    @NotNull
+    @Column(name = "city", nullable = false, length = 80)
     private String city;
+
+    @NotNull
+    @Column(name = "country", nullable = false, length = 30)
     private String country;
-    private String runways;
+
+    @NotNull
+    @Column(name = "runways", nullable = false, length = 2, updatable = false)
+    private double runways;
 
 
 }
