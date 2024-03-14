@@ -1,19 +1,25 @@
 package com.edu.udea.airline.domain.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.edu.udea.airline.domain.AirplaneModel;
+import com.edu.udea.airline.domain.Airport;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 @Setter
 @Getter
+@ToString
 public class ScalesDTO {
-    private Long id;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate departureDate;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate arrivalDate;
+    private Long scaleId;
+    private AirplaneModel airplaneModel;
+    private Airport originAirport;
+    private Airport destinationAirport;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime departureDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime arrivalDate;
+    private double price;
 
 }
